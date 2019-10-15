@@ -18,12 +18,27 @@ apt-get -y update
 apt-get -y upgrade
 apt-get -y dist-upgrade
 
+echo "* Setup group and user"
+groupadd piler
+useradd -g piler -m -s /bin/sh -d /var/piler piler
+usermod -L piler
+chmod 755 /var/piler
+
 echo "* Download sources"
 mkdir -p /usr/local/src
 cd /usr/local/src
 curl -LO https://download.qutic.com/src/sphinx/sphinx-3.1.1-612d99f-linux-amd64-glibc2.12.tar.gz
 curl -LO https://download.qutic.com/src/piler/piler-1.3.5.tar.gz
 curl -LO https://download.qutic.com/src/xhtml/xlhtml-0.5.1-sj-mod.tar.gz
+
+echo "* Build piler"
+tar zxvf piler-1.3.5.tar.gz
+cd piler-1.3.5
+./configure --localstatedir=/var --with-database=mysql --enable-tcpwrappers
+
+make
+make install
+ldconfig
 
 echo "* Ensure bootstrap will run next time"
 rm -rf /var/lib/bootstrap
