@@ -1,0 +1,8 @@
+name="qutic-piler"
+organization="qutic development"
+brand="Instance"
+version="20180404.0"
+description="qutic piler 1.3.5 image"
+homepage="https://github.com/jfqd/mi-qutic-piler"
+users="root admin"
+base="f4eb6ee6-c5a1-11e8-9e53-177841ca2537"
