@@ -8,13 +8,14 @@ make
 dirmngr
 screen
 net-tools
-nginx
 curl
 libzip4
 libzip-dev
 tre-agrep
 sysstat
 python-mysqldb
+apache2
+libapache2-mod-php7.0
 php7.0
 php7.0-gd
 php7.0-ldap
