@@ -11,7 +11,12 @@ net-tools
 curl
 libzip4
 libzip-dev
-tre-agrep
+autopoint
+autoconf
+gettext
+libtool
+zip
+automake
 sysstat
 python-mysqldb
 apache2
@@ -33,3 +38,8 @@ clamav
 libpst-dev
 libpst4
 pst-utils
+libwrap0
+libwrap0-dev
+libssl-dev
+tcpd
+libmariadbclient-dev-compat
