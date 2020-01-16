@@ -28,7 +28,7 @@ echo "* Download sources"
 mkdir -p /usr/local/src
 cd /usr/local/src
 curl -LO https://download.qutic.com/src/sphinx/sphinx-3.1.1-612d99f-linux-amd64-glibc2.12.tar.gz
-curl -LO https://download.qutic.com/src/piler/piler-1.3.5.tar.gz
+curl -LO https://download.qutic.com/src/piler/piler-1.3.7.tar.gz
 curl -LO https://download.qutic.com/src/xhtml/xlhtml-0.5.1-sj-mod.tar.gz
 git clone https://github.com/laurikari/tre.git
 
@@ -58,6 +58,11 @@ cd ../piler-1.3.5
 make
 make install
 ldconfig
+
+systemctl stop apache2
+mv /usr/local/var/tmp/002-piler.conf /etc/apache2/sites-enabled/002-piler.conf
+a2enmod rewrite
+a2enmod ssl
 
 echo "* Ensure bootstrap will run next time"
 rm -rf /var/lib/bootstrap
